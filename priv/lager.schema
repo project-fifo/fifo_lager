@@ -7,7 +7,7 @@
 %% both : log.console.file and standard out.
 {mapping, "log.service", "lager.service",
  [{default, "{{service}}"},
-  {datatype, string]}.
+  {datatype, string}]}.
 
 
 {mapping, "log.console", "lager.handlers",

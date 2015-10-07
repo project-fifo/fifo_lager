@@ -11,7 +11,7 @@
    ]},
   {env,[]},
   {modules, []},
-  {contributors, []},
+  {maintainers, ["Heinz N. Gies"]},
   {licenses, []},
   {links, []}
  ]}.
