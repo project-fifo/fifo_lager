@@ -56,8 +56,8 @@
 %% @doc The ip of the graylog server
 {mapping, "log.graylog.host", "lager.handlers",
  [{commented, {"127.0.0.1", 12201}},
-  {default, off},
-  {datatype, [ip, {enum, [off]}]}]}.
+  {default, "off"},
+  {datatype, [ip, {atom, off}]}]}.
 
 %% @doc the log level of the graylog log
 {mapping, "log.graylog.level", "lager.handlers",
@@ -67,8 +67,8 @@
 %% @doc The ip of the graylog server
 {mapping, "log.logstash.host", "lager.handlers",
  [{commented, {"127.0.0.1", 9125}},
-  {default, off},
-  {datatype, [ip, {enum, [off]}]}]}.
+  {default, "off"},
+  {datatype, [ip, {atom, off}]}]}.
 %% @doc the log level of the graylog log
 {mapping, "log.logstash.level", "lager.handlers",
  [{default, info},
