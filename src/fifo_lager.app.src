@@ -1,0 +1,16 @@
+{application, 'fifo_lager',
+ [{description, "Lager config and dependencies"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {applications,
+   [kernel,
+    stdlib,
+    lager_graylog,
+    lager_logstash_backend
+   ]},
+  {env,[]},
+  {modules, []},
+  {contributors, []},
+  {licenses, []},
+  {links, []}
+ ]}.
