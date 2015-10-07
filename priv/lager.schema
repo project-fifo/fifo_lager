@@ -9,7 +9,6 @@
  [{default, "{{service}}"},
   {datatype, string}]}.
 
-
 {mapping, "log.console", "lager.handlers",
  [{default, file},
   {datatype, {enum, [off, file, console, both]}}]}.
@@ -57,7 +56,8 @@
 %% @doc The ip of the graylog server
 {mapping, "log.graylog.host", "lager.handlers",
  [{commented, {"127.0.0.1", 12201}},
-  {datatype, ip}]}.
+  {default, off},
+  {datatype, [ip, {enum, [off]}]}]}.
 
 %% @doc the log level of the graylog log
 {mapping, "log.graylog.level", "lager.handlers",
@@ -67,13 +67,12 @@
 %% @doc The ip of the graylog server
 {mapping, "log.logstash.host", "lager.handlers",
  [{commented, {"127.0.0.1", 9125}},
-  {datatype, ip}]}.
-
+  {default, off},
+  {datatype, [ip, {enum, [off]}]}]}.
 %% @doc the log level of the graylog log
 {mapping, "log.logstash.level", "lager.handlers",
  [{default, info},
   {datatype, {enum, [debug, info, warning, error]}}]}.
-
 
 {translation,
  "lager.handlers",
@@ -87,7 +86,7 @@
          GraylogHandler =
              case cuttlefish:conf_get("log.graylog.host", Conf) of
                  {GHost, GPort} ->
-                     GLevel = cuttlefish:conf_get("log.graylog.host", Conf),
+                     GLevel = cuttlefish:conf_get("log.graylog.level", Conf),
                      [{lager_udp_backend,
                        [GLevel,
                         {host, GHost},
@@ -99,9 +98,9 @@
                  _ -> []
              end,
          LSHandler =
-             case cuttlefish:conf_get("log.graylog", Conf) of
+             case cuttlefish:conf_get("log.logstash.host", Conf) of
                  {LHost, LPort} ->
-                     LLevel = cuttlefish:conf_get("log.logstash.host", Conf),
+                     LLevel = cuttlefish:conf_get("log.logstash.level", Conf),
                      [{lager_logstash_backend,
                        [{level,         info},
                         {logstash_host, LHost},
