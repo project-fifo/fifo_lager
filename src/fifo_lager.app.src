@@ -5,6 +5,7 @@
   {applications,
    [kernel,
     stdlib,
+    lager_watchdog,
     lager_graylog,
     lager_logstash_backend
    ]},
