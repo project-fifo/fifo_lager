@@ -1,7 +1,7 @@
 fifo_lager
 =====
 
-A lager 'template' that includes graylog, logstash, watchdog and the required config for cuttlefish.
+A lager 'template' that includes graylog, logstash, and the required config for cuttlefish.
 
 The following overlays are used:
 

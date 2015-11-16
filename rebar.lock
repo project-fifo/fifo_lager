@@ -11,5 +11,4 @@
  {<<"lager_logstash_backend">>,
   {git,"https://github.com/QBurstPoland/lager_logstash_backend.git",
        {ref,"069f5c803b5372fb7604789ee64bcbfef78e493a"}},
-  0},
- {<<"lager_watchdog">>,{pkg,<<"lager_watchdog">>,<<"0.1.10">>},0}].
+  0}].

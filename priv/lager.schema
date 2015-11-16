@@ -38,21 +38,6 @@
  [{default, off},
   {datatype, {enum, [on, off]}}]}.
 
-%% @doc the log level of the watchdog log
-{mapping, "log.watchdog.level", "lager.handlers",
- [{default, error},
-  {datatype, {enum, [debug, info, warning, error]}}]}.
-
-%% @doc the log level of the watchdog log
-{mapping, "log.watchdog.cluster", "lager.handlers",
- [{default, "fifo"},
-  {datatype, string}]}.
-
-%% @doc The ip of the watchdog server
-{mapping, "log.watchdog.host.$name", "lager.handlers",
- [{commented, {"127.0.0.1", 4444 }},
-  {datatype, ip}]}.
-
 %% @doc The ip of the graylog server
 {mapping, "log.graylog.host", "lager.handlers",
  [{commented, {"127.0.0.1", 12201}},
@@ -115,17 +100,6 @@
                        ]}];
                  _ -> []
              end,
-         WatchdogHandler =
-             case cuttlefish_util:filter_by_variable_starts_with("log.watchdog.host", Conf) of
-                 undefined -> [];
-                 [] -> [];
-                 WatchdogLogServers ->
-                     Servers1 = [S || {_Name, S} <- WatchdogLogServers],
-                     WatchdogLogLevel = cuttlefish:conf_get("log.watchdog.level", Conf),
-                     WDCluster = cuttlefish:conf_get("log.watchdog.cluster", Conf),
-                     [{lager_watchdog, [WDCluster, Service, WatchdogLogLevel, Servers1]}]
-             end,
-
          ErrorHandler =
              case cuttlefish:conf_get("log.error.file", Conf) of
                  undefined -> [];
@@ -164,7 +138,7 @@
              end,
 
          SyslogHandler ++ ConsoleHandlers ++ ErrorHandler ++ DebugHandler
-             ++ WatchdogHandler ++ GraylogHandler ++ LSHandler
+             ++ GraylogHandler ++ LSHandler
  end
 }.
 
