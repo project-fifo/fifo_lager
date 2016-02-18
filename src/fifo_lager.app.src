@@ -1,16 +1,11 @@
-{application, 'fifo_lager',
- [{description, "Lager config and dependencies"},
-  {vsn, "0.1.1"},
-  {registered, []},
-  {applications,
-   [kernel,
-    stdlib,
-    lager_graylog,
-    lager_logstash_backend
-   ]},
-  {env,[]},
-  {modules, []},
-  {maintainers, ["Heinz N. Gies"]},
-  {licenses, []},
-  {links, []}
- ]}.
+{application,fifo_lager,
+             [{description,"Lager config and dependencies"},
+              {vsn,"0.1.2"},
+              {registered,[]},
+              {applications,[kernel,stdlib,lager_graylog,
+                             lager_logstash_backend]},
+              {env,[]},
+              {modules,[]},
+              {maintainers,["Heinz N. Gies"]},
+              {licenses,[]},
+              {links,[]}]}.
