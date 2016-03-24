@@ -20,12 +20,13 @@
 
 %% @doc location of the console log
 {mapping, "log.console.file", "lager.handlers",
- [{default, "{{log_path}}/console.log"}]}.
+ [{datatype, file},
+  {default, "{{log_path}}/console.log"}]}.
 
-%% *gasp* notice the same @mapping!
 %% @doc location of the error log
 {mapping, "log.error.file", "lager.handlers",
- [{default, "{{log_path}}/error.log"}]}.
+ [{datatype, file},
+  {default, "{{log_path}}/error.log"}]}.
 
 %% @doc location of the debug log
 {mapping, "log.debug.file", "lager.handlers",
