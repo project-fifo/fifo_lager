@@ -31,7 +31,7 @@
 %% @doc location of the debug log
 {mapping, "log.debug.file", "lager.handlers",
  [{datatype, [file, {atom, off}]},
-  {default, off},
+  {default, "off"},
   {commented, "{{log_path}}/debug.log"}]}.
 
 %% *gasp* notice the same @mapping!
