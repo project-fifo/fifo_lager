@@ -27,10 +27,11 @@
 {mapping, "log.error.file", "lager.handlers",
  [{default, "{{log_path}}/error.log"}]}.
 
-%% *gasp* notice the same @mapping!
 %% @doc location of the debug log
 {mapping, "log.debug.file", "lager.handlers",
- [{default, "{{log_path}}/debug.log"}]}.
+ [{datatype, [file, {atom, off}]},
+  {default, off},
+  {commented, "{{log_path}}/debug.log"}]}.
 
 %% *gasp* notice the same @mapping!
 %% @doc turn on syslog
@@ -54,6 +55,7 @@
  [{commented, {"127.0.0.1", 9125}},
   {default, "off"},
   {datatype, [ip, {atom, off}]}]}.
+
 %% @doc the log level of the graylog log
 {mapping, "log.logstash.level", "lager.handlers",
  [{default, info},
@@ -130,6 +132,7 @@
          DebugHandler =
              case cuttlefish:conf_get("log.debug.file", Conf) of
                  undefined -> [];
+                 off -> [];
                  DebugFilename -> [{lager_file_backend, [{file, DebugFilename},
                                                          {level, debug},
                                                          {size, 10485760},
