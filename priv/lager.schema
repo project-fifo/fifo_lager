@@ -30,8 +30,8 @@
 
 %% @doc location of the debug log
 {mapping, "log.debug.file", "lager.handlers",
- [{datatype, [file, {atom, off}]},
-  {default, "off"},
+ [{datatype, [{atom, off}, file]},
+  {default, off},
   {commented, "{{log_path}}/debug.log"}]}.
 
 %% *gasp* notice the same @mapping!
@@ -134,6 +134,7 @@
              case cuttlefish:conf_get("log.debug.file", Conf) of
                  undefined -> [];
                  off -> [];
+                 "off" -> [];
                  DebugFilename -> [{lager_file_backend, [{file, DebugFilename},
                                                          {level, debug},
                                                          {size, 10485760},
