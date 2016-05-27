@@ -7,5 +7,5 @@
               {env,[]},
               {modules,[]},
               {maintainers,["Heinz N. Gies"]},
-              {licenses,[]},
+              {licenses,["MIT"]},
               {links,[]}]}.
