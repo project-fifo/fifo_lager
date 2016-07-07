@@ -1,7 +1,7 @@
 [{<<"goldrush">>,{pkg,<<"goldrush">>,<<"0.1.8">>},1},
- {<<"jsx">>,{pkg,<<"jsx">>,<<"2.6.1">>},1},
+ {<<"jsx">>,{pkg,<<"jsx">>,<<"2.8.0">>},1},
  {<<"lager">>,{pkg,<<"lager">>,<<"2.1.1">>},0},
  {<<"lager_graylog">>,{pkg,<<"lager_graylog">>,<<"0.1.1">>},0},
  {<<"lager_logstash_backend">>,
-  {pkg,<<"lager_logstash_backend">>,<<"0.1.0">>},
+  {pkg,<<"lager_logstash_backend">>,<<"0.1.1">>},
   0}].
